@@ -17,7 +17,7 @@ allprojects {
     }
 }
 
-compile 'com.github.piasy:AudioMixer:1.0.1'
+compile 'com.github.piasy:AudioMixer:1.0.2'
 ```
 
 ### iOS & macOS
@@ -51,7 +51,7 @@ AudioMixer mixer = new AudioMixer(new MixerConfig(
 Do mix with recorded data:
 
 ``` java
-AudioBuffer buffer = mixer.addRecordedDataAndMix(buf, size);
+mixer.addRecordedData(2, buf, size);
 ```
 
 Do mix with file only:
@@ -110,7 +110,8 @@ _mixer = [[PYAAudioMixer alloc] initWithConfig:config];
 Do mix with recorded data:
 
 ``` objc
-_mixedBuffer = [_mixer addRecordedDataAndMix:_buffer size:mixerInputSize];
+[_mixer addRecordedData:2 data:_buffer size:mixerInputSize];
+_mixedBuffer = [_mixer mix];
 ```
 
 Do mix with file only:
